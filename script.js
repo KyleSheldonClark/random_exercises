@@ -1,10 +1,13 @@
 //Javascript console script that generates a list of random exercise
-//Takes in an object and returns the values of a random key in that object
+
+//Takes in an muscle group and returns a random muscle and exercise for that muscle
 function generateRandomExercise(obj) {
   let keys = Object.keys(obj);
-  let muscle = obj[keys[keys.length * Math.random() << 0]];
-  return muscle[muscle.length*Math.random() << 0];
+  const muscle = keys[keys.length * Math.random() << 0];
+  const exercise = obj[muscle][obj[muscle].length * Math.random() << 0];
+  return muscle + ': ' + exercise;
 }
+
 //Exercises organised by body section and muscle
 const exercises = {
   lowerBody: {
@@ -27,3 +30,6 @@ const exercises = {
     lowerBack: ['Back Extension', 'Axle Deadlift', 'Superman', 'Hyperextensions'],
   },
 }
+
+const lowerBodyExercise = generateRandomExercise(exercises.lowerBody);
+const upperBodyExercise = generateRandomExercise(exercises.upperBody);
