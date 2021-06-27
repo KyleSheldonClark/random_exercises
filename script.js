@@ -1,6 +1,6 @@
 //Javascript console script that generates a list of random exercise
 
-//Takes in an object and returns random muscles and exercises for those muscles
+//Takes in an object and returns four random muscles and exercises for those muscles
 function generateRandomExercises(obj) {
   let keys = Object.keys(obj);
   const todaysMuscles = [];
@@ -37,3 +37,17 @@ const exercises = {
     middleBack: ['Rower', 'One-Arm Dumbbell Row', 'Bent Over Barbell Row', 'Upside-Down Pull-Up'],
     lowerBack: ['Back Extension', 'Axle Deadlift', 'Superman', 'Hyperextensions'],
 }
+
+//get random workouts for todays workoutRoutine
+const workoutRoutine = generateRandomExercises(exercises);
+
+//takes a workout(array) as input and formats the workout then outputs the workout to the user
+function formatWorkout(workout) {
+  console.log('For your workout today you will do the following exercises:')
+  for (let exercise in workoutRoutine) {
+    const muscle = Object.keys(workoutRoutine[exercise])[0];
+    console.log(`${workoutRoutine[exercise][muscle]} to workout your ${muscle}`);
+  }
+}
+
+formatWorkout(workoutRoutine);
