@@ -1,4 +1,10 @@
 //Javascript console script that generates a list of random exercise
+//Takes in an object and returns the values of a random key in that object
+function generateRandomExercise(obj) {
+  let keys = Object.keys(obj);
+  let muscle = obj[keys[keys.length * Math.random() << 0]];
+  return muscle[muscle.length*Math.random() << 0];
+}
 //Exercises organised by body section and muscle
 const exercises = {
   lowerBody: {
